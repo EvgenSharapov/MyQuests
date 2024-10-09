@@ -30,11 +30,12 @@ public class StartQuest extends HttpServlet {
         if (action != null) {
             switch (action) {
                 case "game1" -> session.setAttribute("command", command.START);
-                case "start" -> session.setAttribute("command", command.QUESTION1);
-                case "acceptCall" -> session.setAttribute("command", command.QUESTION2);
-                case "rejectCall","refuseGoUp","Lie" -> session.setAttribute("dead", true);
-                case "goUp" -> session.setAttribute("command", command.QUESTION3);
-                case "Truth" -> session.setAttribute("command", command.QUESTION4);
+                case "start1" -> session.setAttribute("command", command.SPACE1);
+                case "acceptCall" -> session.setAttribute("command", command.SPACE2);
+                case "rejectCall","refuseGoUp","Lie" -> session.setAttribute("lose", true);
+                case "goUp" -> session.setAttribute("command", command.SPACE3);
+                case "Truth" -> session.setAttribute("command", command.SPACE4);
+                case "game2" -> session.setAttribute("command", command.DONT_PUSH_MENU);
             }
         }
         response.sendRedirect("start");

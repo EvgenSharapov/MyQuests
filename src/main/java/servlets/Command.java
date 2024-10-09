@@ -3,8 +3,11 @@ package servlets;
 public enum Command {
     MENU,
     START,
-    QUESTION1,
-    QUESTION2,
-    QUESTION3,
-    QUESTION4,
+    SPACE1,
+    SPACE2,
+    SPACE3,
+    SPACE4,
+    DONT_PUSH_MENU
+
+
 }

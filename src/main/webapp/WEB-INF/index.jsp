@@ -13,10 +13,18 @@
 <body>
 <c:set var="MENU" value="<%=Command.MENU%>"/>
 <c:set var="START" value="<%=Command.START%>"/>
-<c:set var="QUESTION1" value="<%=Command.QUESTION1%>"/>
-<c:set var="QUESTION2" value="<%=Command.QUESTION2%>"/>
-<c:set var="QUESTION3" value="<%=Command.QUESTION3%>"/>
-<c:set var="QUESTION4" value="<%=Command.QUESTION4%>"/>
+<c:set var="SPACE1" value="<%=Command.SPACE1%>"/>
+<c:set var="SPACE2" value="<%=Command.SPACE2%>"/>
+<c:set var="SPACE3" value="<%=Command.SPACE3%>"/>
+<c:set var="SPACE4" value="<%=Command.SPACE4%>"/>
+<c:set var="DONT_PUSH_MENU" value="<%=Command.DONT_PUSH_MENU%>"/>
+
+
+
+
+
+
+
 
 <c:if test="${command == MENU}">
     <h1>Главное меню</h1>
@@ -32,16 +40,13 @@
 </c:if>
 
 
-
-
-
-<c:if test="${command ==QUESTION1&&dead!=true}">
+<c:if test="${command ==SPACE1&&lose!=true}">
     <h1>QUESTION1</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1call.jpg"><br>
     <p>Ты потерял память.Принять вызов НЛО?</p>
 </c:if>
-<c:if test="${command ==QUESTION1&&dead==true}">
+<c:if test="${command ==SPACE1&&lose==true}">
     <h1>Поражение</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
@@ -49,35 +54,46 @@
 </c:if>
 
 
-<c:if test="${command == QUESTION2&&dead!=true}">
+<c:if test="${command == SPACE2&&lose!=true}">
     <h1>QUESTION2</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1ufo.jpg"><br>
     <p>Ты принял вызов.Поднимаешься на мостик к капитану?</p>
 </c:if>
 
-<c:if test="${command == QUESTION2&&dead==true}">
+<c:if test="${command == SPACE2&&lose==true}">
     <h1>Поражение</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
     <p>Ты не пошёл на переговоры и проиграл!</p>
 </c:if>
+<%--=====dont push=====--%>
+<c:if test="${command == DONT_PUSH_MENU}">
+    <h1>Don't push</h1>
+    <img class="rounded mx-auto d-block"
+         src="${pageContext.request.contextPath}/static/image/dontpushmenu.jpg"><br>
+</c:if>
 
 
-<c:if test="${command == QUESTION3&&dead!=true}">
+
+
+
+<%--======================================--%>
+
+<c:if test="${command == SPACE3&&lose!=true}">
     <h1>QUESTION3</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1talk.jpg"><br>
     <p>Ты поднялся на мостик.Ты кто?</p>
 </c:if>
-<c:if test="${command == QUESTION3&&dead==true}">
+<c:if test="${command == SPACE3&&lose==true}">
     <h1>Поражение</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
     <p>Твою ложь разоблачили и ты проиграл!</p>
 </c:if>
 
-<c:if test="${command == QUESTION4}">
+<c:if test="${command == SPACE4}">
     <h1>Победа</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1home.jpg"><br>
@@ -92,32 +108,40 @@
     <form id="options-form">
         <c:if test="${command == MENU}">
             <button type="button" class="button" onclick="selectAction('game1')">Игра1</button>
+            <button type="button" class="button" onclick="selectAction('game2')">Игра2</button>
+            <button type="button" class="button" onclick="selectAction('game3')">Игра3</button>
+            <button type="button" class="button" onclick="selectAction('game4')">Игра4</button>
         </c:if>
 
         <c:if test="${command == START}">
-            <button type="button" class="button" onclick="selectAction('start')">Играть</button>
+            <button type="button" class="button" onclick="selectAction('start1')">Играть</button>
         </c:if>
 
-        <c:if test="${dead == true}">
+        <c:if test="${lose == true}">
             <button type="button" class="restart-button" onclick="restart()">Играть заново</button>
         </c:if>
 
-        <c:if test="${command == QUESTION1&&dead != true}">
+        <c:if test="${command == SPACE1&&lose!= true}">
             <button type="button" class="button" onclick="selectAction('acceptCall')">Принять вызов</button>
             <button type="button" class="button" onclick="selectAction('rejectCall')">Отклонить вызов</button>
         </c:if>
 
-        <c:if test="${command == QUESTION2&&dead != true}">
+        <c:if test="${command == SPACE2&&lose!= true}">
             <button type="button" class="button" onclick="selectAction('goUp')">Подняться на мостик</button>
             <button type="button" class="button" onclick="selectAction('refuseGoUp')">Не подниматься на мостик</button>
         </c:if>
-        <c:if test="${command == QUESTION3&&dead != true}">
+        <c:if test="${command == SPACE3&&lose!= true}">
             <button type="button" class="button" onclick="selectAction('Truth')">Рассказать правду о себе</button>
             <button type="button" class="button" onclick="selectAction('Lie')">Солгать</button>
         </c:if>
 
-        <c:if test="${command == QUESTION4}">
+        <c:if test="${command == SPACE4}">
             <button type="button" class="restart-button-win" onclick="restart()">Играть заново</button>
+        </c:if>
+
+
+        <c:if test="${command == DONT_PUSH_MENU}">
+            <button type="button" class="button" onclick="selectAction('start2')">Играть</button>
         </c:if>
     </form>
 </div>
