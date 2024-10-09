@@ -1,0 +1,66 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+.button {
+    padding: 5px 5px;
+    font-size: 18px;
+    color: #0e0101;
+    background-color: #ccc149;
+    border: none;
+    cursor: grab;
+    border-radius: 6px;
+
+}
+.button:hover {
+    background-color: #837325;
+}
+
+.restart-button-win{
+    background-color: #4e9e1f;
+    font-size: 18px;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: grab;
+    border-radius: 6px;
+}
+
+.restart-button-win:hover{
+    background-color: #2d650c;
+}
+
+.restart-button {
+    background-color: #398fda;
+    font-size: 18px;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: grab;
+}
+.restart-button:hover {
+    background-color: #00138b;
+}
+
+h1 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+p {
+    color: #000000;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
