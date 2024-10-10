@@ -19,8 +19,8 @@
 <c:set var="SPACE3" value="<%=Command.SPACE3%>"/>
 <c:set var="SPACE4" value="<%=Command.SPACE4%>"/>
 <c:set var="DONT_PUSH_MENU" value="<%=Command.DONT_PUSH_MENU%>"/>
-
-
+<c:set var="JAVA_RUSH" value="<%=Command.JAVA_RUSH%>"/>
+<c:set var="QUESTION1" value="<%=Command.QUESTION1%>"/>
 
 
 
@@ -57,7 +57,7 @@
         }
     </style>
     </div>
-<div class="div-login">
+<div>
     <img class="image-menu"
          src="${pageContext.request.contextPath}/static/image/startPage.jpg">
     <input class="login" type="text" id="name" name="name" placeholder="Введите своё имя" maxlength="20" value="" required >
@@ -103,7 +103,30 @@
     <h1>Don't push</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/dontpushmenu.jpg"><br>
+
+
+    <%--=====java rush=====--%>
 </c:if>
+<c:if test="${command == JAVA_RUSH}">
+    <h1>Java Rush Test</h1>
+    <img class="rounded mx-auto d-block"
+         src="${pageContext.request.contextPath}/static/image/rush/java_menu.jpg"><br>
+    <button type="button" class="button" onclick="selectAction('start4')">Пройти тест</button>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION1}">
+    <div>
+    <h1>В языке Java выполнение программы начинается с метода</h1></div>
+    <div class="div1"><img class="rounded mx-auto d-block"
+         src="${pageContext.request.contextPath}/static/image/rush/rushq1.jpg">
+        <b>Выбери один из вариантов:</b>
+        <button type="button" class="button-rush" onclick="selectAction('start4')">begin()</button>
+        <button type="button" class="button-rush" onclick="selectAction('start4')">start()</button>
+        <button type="button" class="button-rush" onclick="selectAction('start4')">main()</button>
+        <button type="button" class="button-rush" onclick="selectAction('start4')">run()</button>
+    </div>
+</c:if>
+
 
 
 
@@ -126,6 +149,7 @@
     <h1>Тебя вернули домой.Ты победил!</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1home.jpg"><br>
+
 </c:if>
 
 
@@ -134,10 +158,10 @@
 <div id="options-container">
     <form id="options-form">
         <c:if test="${command == MENU}">
-            <button type="button" class="button" onclick="selectAction('game1')">Игра1</button>
+            <button type="button" class="button" onclick="selectAction('game1')">Space Quest</button>
             <button type="button" class="button" onclick="selectAction('game2')">Игра2</button>
             <button type="button" class="button" onclick="selectAction('game3')">Игра3</button>
-            <button type="button" class="button" onclick="selectAction('game4')">Игра4</button>
+            <button type="button" class="button" onclick="selectAction('game4')">Java Rush</button>
         </c:if>
 
         <c:if test="${command == START}">
@@ -173,6 +197,8 @@
         <c:if test="${command == DONT_PUSH_MENU}">
             <button type="button" class="button" onclick="selectAction('start2')">Играть</button>
         </c:if>
+
+
     </form>
 </div>
 

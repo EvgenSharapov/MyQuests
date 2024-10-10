@@ -27,6 +27,8 @@
     border: none;
     cursor: grab;
     border-radius: 6px;
+    position: relative;
+    top: 10px;
 }
 
 .restart-button-win:hover{
@@ -41,6 +43,8 @@
     border: none;
     border-radius: 6px;
     cursor: grab;
+    position: relative;
+    top: 10px;
 }
 .restart-button:hover {
     background-color: #00138b;
@@ -48,15 +52,25 @@
 
 h1 {
     color: #efe0e0;
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 25px;
+    margin-left: 400px;
+}
+h2 {
+    color: #efe0e0;
+    font-size: 20px;
+    margin-bottom: 25px;
+    margin-left: 100px;
 }
 
-p {
-    color: #000000;
-    font-size: 24px;
+b {
+    position: fixed;
+    color: #efe0e0;
+    font-size: 18px;
     line-height: 1.5;
     margin-bottom: 15px;
+    top:160px;
+    margin-left: 40px;
 }
 .login {
     position: fixed;
@@ -102,6 +116,9 @@ p {
 .button-login-exit:hover {
     background-color: #00138b;
 }
+.div1{
+    display: inline
+}
 
 
 
@@ -115,14 +132,15 @@ p {
 body {
     min-height: 250px;
     height: 100vh;
-    margin: 0;
+    margin: 0px;
+    padding: 10px;
     background: radial-gradient(circle, #0077ea, #1f4f96, #1b2949, #000);
 }
 
 .stage {
-    height: 70px;
+    height: 80px;
     width: 80px;
-    margin: auto;
+    margin-left: 500px;
     top: 0;
     right: 0;
     bottom: 0;
