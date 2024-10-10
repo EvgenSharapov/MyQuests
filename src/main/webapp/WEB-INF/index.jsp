@@ -1,6 +1,7 @@
 <%@ page import="servlets.Command" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +28,43 @@
 
 
 <c:if test="${command == MENU}">
-    <h1>Главное меню</h1>
-    <img class="rounded mx-auto d-block"
-         src="${pageContext.request.contextPath}/static/image/startPage.jpg"><br>
+    <div class="stage">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+
+
+    <style>
+        * *, *::before, *::after {
+            animation-play-state: running !important;
+        }
+    </style>
+    </div>
+<div class="div-login">
+    <img class="image-menu"
+         src="${pageContext.request.contextPath}/static/image/startPage.jpg">
+    <input class="login" type="text" id="name" name="name" placeholder="Введите своё имя" maxlength="20" value="" required >
+    <button type="button" class="button-login-enter" onclick="selectAction('game1')">Войти</button>
+    <button type="button" class="button-login-exit" onclick="selectAction('game1')">Выход</button>
+
+    </div>
 </c:if>
 
 
@@ -41,31 +76,27 @@
 
 
 <c:if test="${command ==SPACE1&&lose!=true}">
-    <h1>QUESTION1</h1>
+    <h1>Ты потерял память.Принять вызов НЛО?</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1call.jpg"><br>
-    <p>Ты потерял память.Принять вызов НЛО?</p>
 </c:if>
 <c:if test="${command ==SPACE1&&lose==true}">
-    <h1>Поражение</h1>
+    <h1>Ты отклонил вызов и проиграл!</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
-    <p>Ты отклонил вызов и проиграл!</p>
 </c:if>
 
 
 <c:if test="${command == SPACE2&&lose!=true}">
-    <h1>QUESTION2</h1>
+    <h1>Ты принял вызов.Поднимаешься на мостик к капитану?</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1ufo.jpg"><br>
-    <p>Ты принял вызов.Поднимаешься на мостик к капитану?</p>
 </c:if>
 
 <c:if test="${command == SPACE2&&lose==true}">
-    <h1>Поражение</h1>
+    <h1>Ты не пошёл на переговоры и проиграл!</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
-    <p>Ты не пошёл на переговоры и проиграл!</p>
 </c:if>
 <%--=====dont push=====--%>
 <c:if test="${command == DONT_PUSH_MENU}">
@@ -81,24 +112,20 @@
 <%--======================================--%>
 
 <c:if test="${command == SPACE3&&lose!=true}">
-    <h1>QUESTION3</h1>
+    <h1>Ты поднялся на мостик.Ты кто?</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1talk.jpg"><br>
-    <p>Ты поднялся на мостик.Ты кто?</p>
 </c:if>
 <c:if test="${command == SPACE3&&lose==true}">
-    <h1>Поражение</h1>
+    <h1>Твою ложь разоблачили и ты проиграл!</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
-    <p>Твою ложь разоблачили и ты проиграл!</p>
 </c:if>
 
 <c:if test="${command == SPACE4}">
-    <h1>Победа</h1>
+    <h1>Тебя вернули домой.Ты победил!</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1home.jpg"><br>
-
-    <p>Тебя вернули домой.Ты победил!</p>
 </c:if>
 
 
@@ -115,10 +142,11 @@
 
         <c:if test="${command == START}">
             <button type="button" class="button" onclick="selectAction('start1')">Играть</button>
+            <button type="button" class="button" onclick="restart()">Главное меню</button>
         </c:if>
 
         <c:if test="${lose == true}">
-            <button type="button" class="restart-button" onclick="restart()">Играть заново</button>
+            <button type="button" class="restart-button" onclick="restart()">Главное меню</button>
         </c:if>
 
         <c:if test="${command == SPACE1&&lose!= true}">
@@ -127,8 +155,8 @@
         </c:if>
 
         <c:if test="${command == SPACE2&&lose!= true}">
-            <button type="button" class="button" onclick="selectAction('goUp')">Подняться на мостик</button>
             <button type="button" class="button" onclick="selectAction('refuseGoUp')">Не подниматься на мостик</button>
+            <button type="button" class="button" onclick="selectAction('goUp')">Подняться на мостик</button>
         </c:if>
         <c:if test="${command == SPACE3&&lose!= true}">
             <button type="button" class="button" onclick="selectAction('Truth')">Рассказать правду о себе</button>
@@ -136,7 +164,9 @@
         </c:if>
 
         <c:if test="${command == SPACE4}">
-            <button type="button" class="restart-button-win" onclick="restart()">Играть заново</button>
+            <button type="button" class="restart-button-win" onclick="restart()">Главное меню</button>
+            <button type="button" class="restart-button-win" onclick="selectAction('game1')">Меню игры</button>
+            <button type="button" class="restart-button-win" onclick="selectAction('start1')">Играть заново</button>
         </c:if>
 
 
@@ -147,7 +177,7 @@
 </div>
 
 <script>
-
+    window.setTimeout = null;
 
 
 
