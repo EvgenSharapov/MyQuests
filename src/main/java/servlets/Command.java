@@ -9,7 +9,11 @@ public enum Command {
     SPACE4,
     DONT_PUSH_MENU,
     JAVA_RUSH,
-    QUESTION1
+    QUESTION1,
+    QUESTION2,
+    QUESTION3,
+    QUESTION4,
+    QUESTION5
 
 
 }

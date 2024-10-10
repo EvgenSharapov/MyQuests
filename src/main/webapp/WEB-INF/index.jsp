@@ -1,6 +1,6 @@
 <%@ page import="servlets.Command" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Text Quest</title>
     <link rel="stylesheet" type="text/css" href="../static/my.css">
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
     <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
 </head>
 <body>
@@ -21,10 +21,10 @@
 <c:set var="DONT_PUSH_MENU" value="<%=Command.DONT_PUSH_MENU%>"/>
 <c:set var="JAVA_RUSH" value="<%=Command.JAVA_RUSH%>"/>
 <c:set var="QUESTION1" value="<%=Command.QUESTION1%>"/>
-
-
-
-
+<c:set var="QUESTION2" value="<%=Command.QUESTION2%>"/>
+<c:set var="QUESTION3" value="<%=Command.QUESTION3%>"/>
+<c:set var="QUESTION4" value="<%=Command.QUESTION4%>"/>
+<c:set var="QUESTION5" value="<%=Command.QUESTION5%>"/>
 
 
 <c:if test="${command == MENU}">
@@ -115,21 +115,95 @@
     <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 <c:if test="${command == QUESTION1}">
-    <div>
-    <h1>В языке Java выполнение программы начинается с метода</h1></div>
-    <div class="div1"><img class="rounded mx-auto d-block"
+  <h1>В языке Java выполнение программы начинается с метода...</h1>
+<div class="div1">
+    <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/rush/rushq1.jpg">
-        <b>Выбери один из вариантов:</b>
-        <button type="button" class="button-rush" onclick="selectAction('start4')">begin()</button>
-        <button type="button" class="button-rush" onclick="selectAction('start4')">start()</button>
-        <button type="button" class="button-rush" onclick="selectAction('start4')">main()</button>
-        <button type="button" class="button-rush" onclick="selectAction('start4')">run()</button>
+    <div class="div2">
+        <div class="btn-group">
+           <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+            <b>Выбери один из вариантов:</b>
+        <button type="button" class="button-r" onclick="selectAction('quest1_1')">begin()</button>
+        <button type="button" class="button-r" onclick="selectAction('quest1_1')">start()</button>
+        <button type="button" class="button-r" onclick="selectAction('quest1_1')">run()</button>
+        <button type="button" class="button-r" onclick="selectAction('quest1_2')">main()</button>
     </div>
+    </div>
+</div>
 </c:if>
 
 
+<c:if test="${command == QUESTION2}">
+    <h1>В языке Java вывести текст на экран в несколько строк можно с помощью функции...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq2.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest2_1')">print()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest2_2')">println()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest2_1')">printLine()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest2_1')">printLines()</button>
+            </div>
+        </div>
+    </div>
+</c:if>
 
+<c:if test="${command == QUESTION3}">
+    <h1>В языке Java объявить переменную name можно с помощью команды...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq3.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest3_1')">var name;</button>
+                <button type="button" class="button-r" onclick="selectAction('quest3_2')">String name;</button>
+                <button type="button" class="button-r" onclick="selectAction('quest3_1')">var name:String</button>
+                <button type="button" class="button-r" onclick="selectAction('quest3_1')">name:String</button>
+            </div>
+        </div>
+    </div>
+</c:if>
 
+<c:if test="${command == QUESTION4}">
+    <h1>В языке Java многострочный комментарий начинается/создаётся с помощью символов...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq4.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">--</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">//</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_2')">/*</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">///</button>
+            </div>
+        </div>
+    </div>
+</c:if>
+
+<c:if test="${command == QUESTION5}">
+    <h1>Java-компилятор после компиляции выдаёт...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">программу, состоящую из машинных кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">программу, состоящую из байт-кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_2')">архив с файлами из машинных кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest4_1')">архив с файлами из байт-кода</button>
+            </div>
+        </div>
+    </div>
+</c:if>
 
 
 <%--======================================--%>

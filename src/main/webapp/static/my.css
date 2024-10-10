@@ -64,13 +64,10 @@ h2 {
 }
 
 b {
-    position: fixed;
     color: #efe0e0;
     font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 15px;
     top:160px;
-    margin-left: 40px;
+    margin-left: 70px;
 }
 .login {
     position: fixed;
@@ -117,10 +114,33 @@ b {
     background-color: #00138b;
 }
 .div1{
-    display: inline
+    display: flex;
+}
+.div2{
+   margin-top: 120px;
 }
 
+.btn-group button{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 10px 24px;
+    width: 370px;
+    display: block;
+    border: none;
+    border-radius: 6px;
+    cursor: grab;
+    margin-top: 10px;
+    margin-left: 15px;
+}
 
+.btn-group button:hover:not(:last-child) {
+    border-bottom: none;
+}
+
+.btn-group button:hover{
+    background-color: #3e8e41;
+}
 
 
 
