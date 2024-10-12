@@ -72,7 +72,7 @@
             <b class="login-text"><%=session.getAttribute("username")%></b>
             <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
             <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score")%></b>
-            <b class="login-text2">SpaceQuest пройден : <%=session.getAttribute("space-end")%></b>
+            <b class="login-text2">SpaceQuest :<%=session.getAttribute("space-end")%></b>
 
 
 

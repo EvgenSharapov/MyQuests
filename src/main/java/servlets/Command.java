@@ -12,7 +12,7 @@ public enum Command {
     QUESTION2,
     QUESTION3,
     QUESTION4,
-    QUESTION5
+    QUESTION5,
 
 
 }
