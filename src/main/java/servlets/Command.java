@@ -7,7 +7,6 @@ public enum Command {
     SPACE2,
     SPACE3,
     SPACE4,
-    DONT_PUSH_MENU,
     JAVA_RUSH,
     QUESTION1,
     QUESTION2,

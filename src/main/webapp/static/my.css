@@ -90,6 +90,24 @@ b {
     top:95px;
     margin-left: 20px;
 }
+.login-text1{
+    position: fixed;
+    width:  400px;
+    height: 40px;
+    font-size: 28px;
+    color: #ead9d9;
+    top:280px;
+    margin-left: 20px;
+}
+.login-text2{
+    position: fixed;
+    width:  400px;
+    height: 40px;
+    font-size: 28px;
+    color: #ead9d9;
+    top:360px;
+    margin-left: 20px;
+}
 
 .button-login-enter{
     position: fixed;

@@ -18,7 +18,6 @@
 <c:set var="SPACE2" value="<%=Command.SPACE2%>"/>
 <c:set var="SPACE3" value="<%=Command.SPACE3%>"/>
 <c:set var="SPACE4" value="<%=Command.SPACE4%>"/>
-<c:set var="DONT_PUSH_MENU" value="<%=Command.DONT_PUSH_MENU%>"/>
 <c:set var="JAVA_RUSH" value="<%=Command.JAVA_RUSH%>"/>
 <c:set var="QUESTION1" value="<%=Command.QUESTION1%>"/>
 <c:set var="QUESTION2" value="<%=Command.QUESTION2%>"/>
@@ -72,6 +71,11 @@
                  src="${pageContext.request.contextPath}/static/image/startPage.jpg">
             <b class="login-text"><%=session.getAttribute("username")%></b>
             <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
+            <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score")%></b>
+            <b class="login-text2">SpaceQuest пройден : <%=session.getAttribute("space-end")%></b>
+
+
+
         </div>
     </c:if>
 
@@ -108,22 +112,16 @@
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/q1gameover.jpg"><br>
 </c:if>
-<%--=====dont push=====--%>
-<c:if test="${command == DONT_PUSH_MENU}">
-    <h1>Don't push</h1>
-    <img class="rounded mx-auto d-block"
-         src="${pageContext.request.contextPath}/static/image/dontpushmenu.jpg"><br>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
 
 
-    <%--=====java rush=====--%>
-</c:if>
+
+
 <c:if test="${command == JAVA_RUSH}">
     <h1>Java Rush Test</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/rush/java_menu.jpg"><br>
     <button type="button" class="button" onclick="selectAction('start4')">Пройти тест</button>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 <c:if test="${command == QUESTION1}">
   <h1>В языке Java выполнение программы начинается с метода...</h1>
@@ -141,7 +139,7 @@
     </div>
     </div>
 </div>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 
@@ -161,7 +159,7 @@
             </div>
         </div>
     </div>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION3}">
@@ -180,7 +178,7 @@
             </div>
         </div>
     </div>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION4}">
@@ -199,7 +197,7 @@
             </div>
         </div>
     </div>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION5}">
@@ -218,7 +216,7 @@
             </div>
         </div>
     </div>
-    <button type="button" class="button" onclick="restart()">Главное меню</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 
@@ -249,18 +247,16 @@
     <form id="options-form">
         <c:if test="${command == MENU}">
             <button type="button" class="button" onclick="selectAction('game1')">Space Quest</button>
-            <button type="button" class="button" onclick="selectAction('game2')">Игра2</button>
-            <button type="button" class="button" onclick="selectAction('game3')">Игра3</button>
             <button type="button" class="button" onclick="selectAction('game4')">Java Rush</button>
         </c:if>
 
         <c:if test="${command == START}">
             <button type="button" class="button" onclick="selectAction('start1')">Играть</button>
-            <button type="button" class="button" onclick="restart()">Главное меню</button>
+            <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
         </c:if>
 
         <c:if test="${lose == true}">
-            <button type="button" class="restart-button" onclick="restart()">Главное меню</button>
+            <button type="button" class="restart-button" onclick="selectAction('menu')">Главное меню</button>
         </c:if>
 
         <c:if test="${command == SPACE1&&lose!= true}">
@@ -273,20 +269,17 @@
             <button type="button" class="button" onclick="selectAction('goUp')">Подняться на мостик</button>
         </c:if>
         <c:if test="${command == SPACE3&&lose!= true}">
-            <button type="button" class="button" onclick="selectAction('Truth')">Рассказать правду о себе</button>
-            <button type="button" class="button" onclick="selectAction('Lie')">Солгать</button>
+            <button type="button" class="button" onclick="selectAction('truth')">Рассказать правду о себе</button>
+            <button type="button" class="button" onclick="selectAction('lie')">Солгать</button>
         </c:if>
 
         <c:if test="${command == SPACE4}">
-            <button type="button" class="restart-button-win" onclick="restart()">Главное меню</button>
+            <button type="button" class="restart-button-win" onclick="selectAction('menu')">Главное меню</button>
             <button type="button" class="restart-button-win" onclick="selectAction('game1')">Меню игры</button>
             <button type="button" class="restart-button-win" onclick="selectAction('start1')">Играть заново</button>
         </c:if>
 
 
-        <c:if test="${command == DONT_PUSH_MENU}">
-            <button type="button" class="button" onclick="selectAction('start2')">Играть</button>
-        </c:if>
 
 
     </form>
