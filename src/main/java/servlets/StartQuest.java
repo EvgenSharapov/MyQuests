@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet("/start")
 public class StartQuest extends HttpServlet {
-    public static final int SCORE = 0;
+    public String username;
 
 
     @Override
@@ -20,6 +20,7 @@ public class StartQuest extends HttpServlet {
         if (session.getAttribute("command") == null) {
             session.setAttribute("command", Command.MENU);
             session.setAttribute("score", 0);
+            session.setAttribute("username", null);
         }
 
         getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
@@ -28,6 +29,8 @@ public class StartQuest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
+        username = request.getParameter("name");
+        session.setAttribute("username",username);
         int score = (int) session.getAttribute("score");
         Command command = (Command) session.getAttribute("command");
         if (action != null) {

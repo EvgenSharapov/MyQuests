@@ -81,6 +81,15 @@ b {
     margin-left: 20px;
 
 }
+.login-text{
+    position: fixed;
+    width:  200px;
+    height: 40px;
+    font-size: 28px;
+    color: #ead9d9;
+    top:95px;
+    margin-left: 20px;
+}
 
 .button-login-enter{
     position: fixed;
@@ -125,7 +134,7 @@ b {
     color: white;
     font-size: 18px;
     padding: 10px 24px;
-    width: 370px;
+    width: 450px;
     display: block;
     border: none;
     border-radius: 6px;

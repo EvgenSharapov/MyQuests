@@ -27,6 +27,7 @@
 <c:set var="QUESTION5" value="<%=Command.QUESTION5%>"/>
 
 
+
 <c:if test="${command == MENU}">
     <div class="stage">
         <div class="layer"></div>
@@ -57,14 +58,23 @@
         }
     </style>
     </div>
-<div>
+    <c:if test="${username ==null}">
+    <div>
     <img class="image-menu"
          src="${pageContext.request.contextPath}/static/image/startPage.jpg">
     <input class="login" type="text" id="name" name="name" placeholder="Введите своё имя" maxlength="20" value="" required >
-    <button type="button" class="button-login-enter" onclick="selectAction('game1')">Войти</button>
-    <button type="button" class="button-login-exit" onclick="selectAction('game1')">Выход</button>
-
+    <button type="button"  class="button-login-enter" onclick="setName(document.getElementsByClassName('login')[0].value)">Вход</button>
     </div>
+    </c:if>
+    <c:if test="${username !=null}">
+        <div>
+            <img class="image-menu"
+                 src="${pageContext.request.contextPath}/static/image/startPage.jpg">
+            <b class="login-text"><%=session.getAttribute("username")%></b>
+            <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
+        </div>
+    </c:if>
+
 </c:if>
 
 
@@ -103,6 +113,7 @@
     <h1>Don't push</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/dontpushmenu.jpg"><br>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 
 
     <%--=====java rush=====--%>
@@ -130,6 +141,7 @@
     </div>
     </div>
 </div>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 
 
@@ -149,6 +161,7 @@
             </div>
         </div>
     </div>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION3}">
@@ -167,6 +180,7 @@
             </div>
         </div>
     </div>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION4}">
@@ -185,6 +199,7 @@
             </div>
         </div>
     </div>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 
 <c:if test="${command == QUESTION5}">
@@ -203,6 +218,7 @@
             </div>
         </div>
     </div>
+    <button type="button" class="button" onclick="restart()">Главное меню</button>
 </c:if>
 
 
@@ -302,6 +318,17 @@
                 location.reload();
             }
         });
+    }
+    function setName(name) {
+        $.ajax({
+            type: 'POST',
+            url: 'start',
+            data: { name: name },
+            success: function() {
+                location.reload();
+            }
+        });
+
     }
 
 </script>
