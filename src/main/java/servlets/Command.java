@@ -13,6 +13,13 @@ public enum Command {
     QUESTION3,
     QUESTION4,
     QUESTION5,
+    QUESTION6,
+    QUESTION7,
+    QUESTION8,
+    QUESTION9,
+    QUESTION10,
+    QUESTION11
+
 
 
 }

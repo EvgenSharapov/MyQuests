@@ -24,6 +24,12 @@
 <c:set var="QUESTION3" value="<%=Command.QUESTION3%>"/>
 <c:set var="QUESTION4" value="<%=Command.QUESTION4%>"/>
 <c:set var="QUESTION5" value="<%=Command.QUESTION5%>"/>
+<c:set var="QUESTION6" value="<%=Command.QUESTION6%>"/>
+<c:set var="QUESTION7" value="<%=Command.QUESTION7%>"/>
+<c:set var="QUESTION8" value="<%=Command.QUESTION8%>"/>
+<c:set var="QUESTION9" value="<%=Command.QUESTION9%>"/>
+<c:set var="QUESTION10" value="<%=Command.QUESTION10%>"/>
+<c:set var="QUESTION11" value="<%=Command.QUESTION11%>"/>
 
 
 
@@ -209,15 +215,117 @@
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
                 <b>Выбери один из вариантов:</b>
-                <button type="button" class="button-r" onclick="selectAction('quest4_1')">программу, состоящую из машинных кодов</button>
-                <button type="button" class="button-r" onclick="selectAction('quest4_1')">программу, состоящую из байт-кодов</button>
-                <button type="button" class="button-r" onclick="selectAction('quest4_2')">архив с файлами из машинных кодов</button>
-                <button type="button" class="button-r" onclick="selectAction('quest4_1')">архив с файлами из байт-кода</button>
+                <button type="button" class="button-r" onclick="selectAction('quest5_1')">программу, состоящую из машинных кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest5_2')">программу, состоящую из байт-кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest5_1')">архив с файлами из машинных кодов</button>
+                <button type="button" class="button-r" onclick="selectAction('quest5_1')">архив с файлами из байт-кода</button>
             </div>
         </div>
     </div>
     <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
+
+<c:if test="${command == QUESTION6}">
+    <h1>В языке Java вывести текст на экран можно с помощью функции...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest6_2')">print()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest6_1')">echo()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest6_1')">writeln()</button>
+                <button type="button" class="button-r" onclick="selectAction('quest6_1')">out()</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION7}">
+    <h1>В языке Java целые числа хранятся в переменных с типом...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest7_2')">int</button>
+                <button type="button" class="button-r" onclick="selectAction('quest7_1')">integer</button>
+                <button type="button" class="button-r" onclick="selectAction('quest7_1')">Integer</button>
+                <button type="button" class="button-r" onclick="selectAction('quest7_1')">Number</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION8}">
+    <h1>JVM-это...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest8_1')">Java Visual Module</button>
+                <button type="button" class="button-r" onclick="selectAction('quest8_1')">Java Virtual Module</button>
+                <button type="button" class="button-r" onclick="selectAction('quest8_2')">Java Virtual Machine</button>
+                <button type="button" class="button-r" onclick="selectAction('quest8_1')">Java Variable Machine</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION9}">
+    <h1>В языке Java самые часто употребляемые типы данных...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest9_1')">int & str</button>
+                <button type="button" class="button-r" onclick="selectAction('quest9_2')">int & String</button>
+                <button type="button" class="button-r" onclick="selectAction('quest9_1')">Integer & String</button>
+                <button type="button" class="button-r" onclick="selectAction('quest9_1')">integer & string</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION10}">
+    <h1>В языке Java у каждой переменной есть...</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('quest10_1')">имя</button>
+                <button type="button" class="button-r" onclick="selectAction('quest10_1')">имя и тип</button>
+                <button type="button" class="button-r" onclick="selectAction('quest10_2')">имя,тип и значение</button>
+                <button type="button" class="button-r" onclick="selectAction('quest10_1')">имя и значение</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+<c:if test="${command == QUESTION11}">
+    <h1>Тест пройден</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+
+
+
 
 
 <%--======================================--%>
