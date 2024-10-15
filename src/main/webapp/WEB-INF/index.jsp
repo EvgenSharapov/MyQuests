@@ -30,7 +30,8 @@
 <c:set var="QUESTION9" value="<%=Command.QUESTION9%>"/>
 <c:set var="QUESTION10" value="<%=Command.QUESTION10%>"/>
 <c:set var="QUESTION11" value="<%=Command.QUESTION11%>"/>
-
+<c:set var="WHO" value="<%=Command.WHO%>"/>
+<c:set var="WHO_Q" value="<%=Command.WHO_Q%>"/>
 
 
 <c:if test="${command == MENU}">
@@ -77,7 +78,8 @@
                  src="${pageContext.request.contextPath}/static/image/startPage.jpg">
             <b class="login-text"><%=session.getAttribute("username")%></b>
             <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
-            <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score")%></b>
+            <b class="login-text1">Лучший результат в тесте : <%=session.getAttribute("score-max")%></b>
+            <b class="login-text4">Лучший результат теста "Животные" : <%=session.getAttribute("score-who-max")%></b>
             <b class="login-text2">SpaceQuest :<%=session.getAttribute("space-end")%></b>
 
 
@@ -229,7 +231,7 @@
     <h1>В языке Java вывести текст на экран можно с помощью функции...</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/rush/rushq6.jpg">
         <div class="div2">
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
@@ -247,7 +249,7 @@
     <h1>В языке Java целые числа хранятся в переменных с типом...</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/rush/rushq7.jpg">
         <div class="div2">
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
@@ -265,7 +267,7 @@
     <h1>JVM-это...</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/rush/rushq8.jpg">
         <div class="div2">
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
@@ -283,7 +285,7 @@
     <h1>В языке Java самые часто употребляемые типы данных...</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/rush/rushq9.jpg">
         <div class="div2">
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
@@ -301,7 +303,7 @@
     <h1>В языке Java у каждой переменной есть...</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/rush/rushq10.jpg">
         <div class="div2">
             <div class="btn-group">
                 <b>Правильных ответов: <%=(int)session.getAttribute("score")%></b><br>
@@ -317,9 +319,43 @@
 </c:if>
 <c:if test="${command == QUESTION11}">
     <h1>Тест пройден</h1>
+    <div>
+        <img class="image-menu"
+             src="${pageContext.request.contextPath}/static/image/rush/rushq11.jpg">
+
+        <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score")%> из 10</b>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+
+
+
+<c:if test="${command == WHO}">
+    <h1>Угадай кто</h1>
+    <img class="rounded mx-auto d-block"
+         src="${pageContext.request.contextPath}/static/image/who/who_menu.jpg"><br>
+    <button type="button" class="button" onclick="selectAction('start-who-animal')">Животные</button>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+
+
+
+
+<c:if test="${command == WHO_Q}">
+    <h1>Какое животное изображено на картинке?</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
-             src="${pageContext.request.contextPath}/static/image/rush/rushq5.jpg">
+             src="${pageContext.request.contextPath}/static/image/who/animal<%=session.getAttribute("who-id")%>.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score-who")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('who-answer1')"><%=session.getAttribute("who-q-1")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer2')"><%=session.getAttribute("who-q-2")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer3')"><%=session.getAttribute("who-q-3")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer4')"><%=session.getAttribute("who-q-4")%></button>
+            </div>
+        </div>
     </div>
     <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
@@ -328,7 +364,16 @@
 
 
 
-<%--======================================--%>
+
+
+
+
+
+
+
+
+
+
 
 <c:if test="${command == SPACE3&&lose!=true}">
     <h1>Ты поднялся на мостик.Ты кто?</h1>
@@ -356,6 +401,7 @@
         <c:if test="${command == MENU}">
             <button type="button" class="button" onclick="selectAction('game1')">Space Quest</button>
             <button type="button" class="button" onclick="selectAction('game4')">Java Rush</button>
+            <button type="button" class="button" onclick="selectAction('game2')">Угадай кто</button>
         </c:if>
 
         <c:if test="${command == START}">

@@ -18,7 +18,9 @@ public enum Command {
     QUESTION8,
     QUESTION9,
     QUESTION10,
-    QUESTION11
+    QUESTION11,
+    WHO,
+    WHO_Q
 
 
 
