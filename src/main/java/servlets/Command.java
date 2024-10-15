@@ -20,7 +20,10 @@ public enum Command {
     QUESTION10,
     QUESTION11,
     WHO,
-    WHO_Q
+    WHO_Q_A,
+    WHO_END_A,
+    WHO_Q_B,
+    WHO_END_B
 
 
 

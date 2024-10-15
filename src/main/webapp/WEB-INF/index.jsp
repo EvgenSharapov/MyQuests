@@ -31,8 +31,10 @@
 <c:set var="QUESTION10" value="<%=Command.QUESTION10%>"/>
 <c:set var="QUESTION11" value="<%=Command.QUESTION11%>"/>
 <c:set var="WHO" value="<%=Command.WHO%>"/>
-<c:set var="WHO_Q" value="<%=Command.WHO_Q%>"/>
-
+<c:set var="WHO_Q_A" value="<%=Command.WHO_Q_A%>"/>
+<c:set var="WHO_END_A" value="<%=Command.WHO_END_A%>"/>
+<c:set var="WHO_Q_B" value="<%=Command.WHO_Q_B%>"/>
+<c:set var="WHO_END_B" value="<%=Command.WHO_END_B%>"/>
 
 <c:if test="${command == MENU}">
     <div class="stage">
@@ -79,7 +81,8 @@
             <b class="login-text"><%=session.getAttribute("username")%></b>
             <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
             <b class="login-text1">Лучший результат в тесте : <%=session.getAttribute("score-max")%></b>
-            <b class="login-text4">Лучший результат теста "Животные" : <%=session.getAttribute("score-who-max")%></b>
+            <b class="login-text4">Лучший результат теста "Млекопитающие" : <%=session.getAttribute("score-who-max")%></b>
+
             <b class="login-text2">SpaceQuest :<%=session.getAttribute("space-end")%></b>
 
 
@@ -334,14 +337,16 @@
     <h1>Угадай кто</h1>
     <img class="rounded mx-auto d-block"
          src="${pageContext.request.contextPath}/static/image/who/who_menu.jpg"><br>
-    <button type="button" class="button" onclick="selectAction('start-who-animal')">Животные</button>
+    <button type="button" class="button" onclick="selectAction('start-who-animal')">Млекопитающие</button>
+    <button type="button" class="button" onclick="selectAction('start-who-bird')">Птицы</button>
+    <button type="button" class="button" onclick="selectAction('start-who-insect')">Насекомые</button>
     <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
 
 
 
-<c:if test="${command == WHO_Q}">
+<c:if test="${command == WHO_Q_A}">
     <h1>Какое животное изображено на картинке?</h1>
     <div class="div1">
         <img class="rounded mx-auto d-block"
@@ -360,9 +365,48 @@
     <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
+<c:if test="${command == WHO_END_A}">
+    <h1>Тест пройден</h1>
+    <div>
+        <img class="image-menu"
+             src="${pageContext.request.contextPath}/static/image/who/animal11.jpg">
+
+        <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score-who")%> из 10</b>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
 
 
 
+<c:if test="${command == WHO_Q_B}">
+    <h1>Какая птица изображена на картинке?</h1>
+    <div class="div1">
+        <img class="rounded mx-auto d-block"
+             src="${pageContext.request.contextPath}/static/image/who/bird<%=session.getAttribute("who-id-bird")%>.jpg">
+        <div class="div2">
+            <div class="btn-group">
+                <b>Правильных ответов: <%=(int)session.getAttribute("score-who-bird")%></b><br>
+                <b>Выбери один из вариантов:</b>
+                <button type="button" class="button-r" onclick="selectAction('who-answer1-bird')"><%=session.getAttribute("who-q-1-bird")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer2-bird')"><%=session.getAttribute("who-q-2-bird")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer3-bird')"><%=session.getAttribute("who-q-3-bird")%></button>
+                <button type="button" class="button-r" onclick="selectAction('who-answer4-bird')"><%=session.getAttribute("who-q-4-bird")%></button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
+
+<c:if test="${command == WHO_END_B}">
+    <h1>Тест пройден</h1>
+    <div>
+        <img class="image-menu"
+             src="${pageContext.request.contextPath}/static/image/who/bird11.jpg">
+
+        <b class="login-text1">Набрано очков в тесте : <%=session.getAttribute("score-who-bird")%> из 10</b>
+    </div>
+    <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
+</c:if>
 
 
 

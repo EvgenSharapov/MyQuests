@@ -21,6 +21,9 @@ public class StartQuest extends HttpServlet {
     public int MaxRushScore;
     public static final int WHO_SCORE = 0;
     public int MaxWhoScore;
+    public static final int WHO_SCORE_BIRD = 0;
+    public int MaxWhoScoreBird;
+
 
     private QuestionRepository quest=new QuestionRepository();
 
@@ -41,6 +44,16 @@ public class StartQuest extends HttpServlet {
             session.setAttribute("who-q-4","Пантера");
             session.setAttribute("score-who", WHO_SCORE);
             session.setAttribute("score-who-max", MaxWhoScore);
+            session.setAttribute("who-id-bird",1);
+            session.setAttribute("who-q-1-bird","Лебедь");
+            session.setAttribute("who-q-2-bird","Журавль");
+            session.setAttribute("who-q-3-bird","Цапля");
+            session.setAttribute("who-q-4-bird","Чайка");
+            session.setAttribute("score-who-bird", WHO_SCORE_BIRD);
+            session.setAttribute("score-who-max-bird", MaxWhoScoreBird);
+
+
+
         }
 
         getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
@@ -60,7 +73,7 @@ public class StartQuest extends HttpServlet {
 
         int id=(int)session.getAttribute("who-id");
 
-        Question question=quest.getQuest(id);
+        Question question=quest.getQuestAnimal(id);
         Answer quest1=question.getAnswerOne();
         Answer quest2=question.getAnswerTwo();
         Answer quest3=question.getAnswerThree();
@@ -68,7 +81,8 @@ public class StartQuest extends HttpServlet {
 
 
 
-        if(action!=null) {
+
+        if(action!=null&&id<12) {
             switch (action) {
                 case "menu" -> {score=0;id=1;scoreWho=0; session.setAttribute("command", Command.MENU);session.setAttribute("lose",false);}
                 case "game1" -> session.setAttribute("command", Command.START);
@@ -101,28 +115,36 @@ public class StartQuest extends HttpServlet {
                 case "quest10_2" -> {score++;  session.setAttribute("command", Command.QUESTION11);}
                 case "game2" -> session.setAttribute("command", Command.WHO);
 
-
-
-
-                case "start-who-animal"->{session.setAttribute("command", Command.WHO_Q);
+                case "start-who-animal"->{session.setAttribute("command", Command.WHO_Q_A);
                 session.setAttribute("who-q-1", "Куница");
                 session.setAttribute("who-q-2", "Волк");
                 session.setAttribute("who-q-3", "Лиса");
                 session.setAttribute("who-q-4", "Пантера");}
 
                 case "who-answer1", "who-answer2", "who-answer3", "who-answer4" -> {
-                    session.setAttribute("command", Command.WHO_Q);
+                    session.setAttribute("command", Command.WHO_Q_A);
                     session.setAttribute("who-q-1", quest1.getAnswer());
                     session.setAttribute("who-q-2", quest2.getAnswer());
                     session.setAttribute("who-q-3", quest3.getAnswer());
                     session.setAttribute("who-q-4", quest4.getAnswer());
                     id++;
                 }
+
+                case "start-who-bird" -> {session.setAttribute("command", Command.WHO_Q_B);
+                    session.setAttribute("who-q-1", "Лебедь");
+                    session.setAttribute("who-q-2", "Журавль");
+                    session.setAttribute("who-q-3", "Цапля");
+                    session.setAttribute("who-q-4", "Чайка");}
+
+
+
+
+
             }
         }
 
-        if(action!=null&&id>1){
-            Question question1=quest.getQuest(id-2);
+        if(action!=null&&id>1&&id<14){
+            Question question1=quest.getQuestAnimal(id-2);
             Answer quest11=question1.getAnswerOne();
             Answer quest22=question1.getAnswerTwo();
             Answer quest33=question1.getAnswerThree();
@@ -150,7 +172,7 @@ public class StartQuest extends HttpServlet {
         session.setAttribute("who-id",id);
         session.setAttribute("score-who",scoreWho);
         session.setAttribute("score-who-max",scoreWhoMax);
-
+        if(id>=11&&action!=null){session.setAttribute("command", Command.WHO_END_A);}
         response.sendRedirect("start");
     }
 
