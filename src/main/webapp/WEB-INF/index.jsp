@@ -80,16 +80,18 @@
                  src="${pageContext.request.contextPath}/static/image/startPage.jpg">
             <b class="login-text"><%=session.getAttribute("username")%></b>
             <button type="button" class="button-login-enter" onclick="restart()">Выход</button>
-            <b class="login-text1">Лучший результат в тесте : <%=session.getAttribute("score-max")%></b>
-            <b class="login-text4">Лучший результат теста "Млекопитающие" : <%=session.getAttribute("score-who-max")%></b>
 
+            <b class="login-text1">Лучшие результаты :</b>
+            <b class="login-text5">JavaRush : <%=session.getAttribute("score-max")%></b>
+            <b class="login-text4">"Млекопитающие" : <%=session.getAttribute("score-who-max")%></b>
+            <b class="login-text3">"Птицы" : <%=session.getAttribute("score-who-max-bird")%></b>
             <b class="login-text2">SpaceQuest :<%=session.getAttribute("space-end")%></b>
+
 
 
 
         </div>
     </c:if>
-
 </c:if>
 
 
@@ -339,7 +341,6 @@
          src="${pageContext.request.contextPath}/static/image/who/who_menu.jpg"><br>
     <button type="button" class="button" onclick="selectAction('start-who-animal')">Млекопитающие</button>
     <button type="button" class="button" onclick="selectAction('start-who-bird')">Птицы</button>
-    <button type="button" class="button" onclick="selectAction('start-who-insect')">Насекомые</button>
     <button type="button" class="button" onclick="selectAction('menu')">Главное меню</button>
 </c:if>
 
