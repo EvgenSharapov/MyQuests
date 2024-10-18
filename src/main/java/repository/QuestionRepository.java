@@ -17,10 +17,6 @@ public class QuestionRepository {
         add(new Question(8,new Answer("Мышь", false),new Answer("Крот", false),new Answer("Хомяк", false),new Answer("Белка", true)));
         add(new Question(9,new Answer("Олень", false),new Answer("Лось", true),new Answer("Лошадь", false),new Answer("Единорог", false)));
         add(new Question(10,new Answer("Антилопа", false),new Answer("Осёл", false),new Answer("Пони", false),new Answer("Зебра", true)));
-        add(new Question(11,new Answer("Антилопа", false),new Answer("Осёл", false),new Answer("Пони", false),new Answer("Зебра", true)));
-        add(new Question(12,new Answer("Антилопа", false),new Answer("Осёл", false),new Answer("Пони", false),new Answer("Зебра", true)));
-
-
 
     }};
     private static final List<Question> questionsBird= new ArrayList<>(){{
@@ -34,17 +30,17 @@ public class QuestionRepository {
         add(new Question(8,new Answer("Галка", false),new Answer("Сорока", false),new Answer("Глухарь", true),new Answer("Филин", true)));
         add(new Question(9,new Answer("Сойка", false),new Answer("Снегирь", true),new Answer("Синица", false),new Answer("Скворец", false)));
         add(new Question(10,new Answer("Волнистый попугай", false),new Answer("Попугай-какаду", true),new Answer("Орёл", false),new Answer("Коршун", false)));
-        add(new Question(11,new Answer("Антилопа", false),new Answer("Осёл", false),new Answer("Пони", false),new Answer("Зебра", true)));
-        add(new Question(12,new Answer("Антилопа", false),new Answer("Осёл", false),new Answer("Пони", false),new Answer("Зебра", true)));
 
     }};
 
 
     public Question getQuestAnimal(int id) {
+        if(id>9){id=9;}
         return questionsAnimal.get(id);
 
     }
     public Question getQuestBird(int id) {
+        if(id>9){id=9;}
         return questionsBird.get(id);
 
     }

@@ -101,23 +101,40 @@ b {
 }
 .login-text2{
     position: fixed;
-    width:  400px;
+    width:  450px;
     height: 40px;
     font-size: 28px;
     color: #ead9d9;
     top:360px;
     margin-left: 20px;
 }
-.login-text4{
+.login-text3{
     position: fixed;
-    width:  470px;
+    width:  450px;
     height: 40px;
     font-size: 28px;
     color: #ead9d9;
     top:440px;
     margin-left: 20px;
 }
-
+.login-text4{
+    position: fixed;
+    width:  450px;
+    height: 40px;
+    font-size: 28px;
+    color: #ead9d9;
+    top:520px;
+    margin-left: 20px;
+}
+.login-text5{
+    position: fixed;
+    width:  450px;
+    height: 40px;
+    font-size: 28px;
+    color: #ead9d9;
+    top:600px;
+    margin-left: 20px;
+}
 .button-login-enter{
     position: fixed;
     background-color: #398fda;

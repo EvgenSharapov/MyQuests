@@ -63,11 +63,11 @@ public class StartServlet extends HttpServlet {
         String username = request.getParameter("name");
         int score = (int) session.getAttribute("score");
         String spaceEnd= (String) session.getAttribute("space-end");
-        int maxScore=(int)session.getAttribute("score-max");
+        MaxRushScore=(int)session.getAttribute("score-max");
         int scoreWho=(int) session.getAttribute("score-who");
-        int scoreWhoMax=(int) session.getAttribute("score-who-max");
+        MaxWhoScore=(int) session.getAttribute("score-who-max");
         int scoreWhoBird=(int) session.getAttribute("score-who-bird");
-        int scoreWhoMaxBird=(int) session.getAttribute("score-who-max-bird");
+        MaxWhoScoreBird=(int) session.getAttribute("score-who-max-bird");
 
 
         int id=(int)session.getAttribute("who-id");
@@ -236,18 +236,18 @@ public class StartServlet extends HttpServlet {
 
         if(username!=null){session.setAttribute("username",username);}
         session.setAttribute("space-end",spaceEnd);
-        if(maxScore<score){maxScore=score;}
+        if(MaxRushScore<score){MaxRushScore=score;}
 
-        if(scoreWhoMax<scoreWho){scoreWhoMax=scoreWho;}
-        if(scoreWhoMaxBird<scoreWhoBird){scoreWhoMaxBird=scoreWhoBird;}
-        session.setAttribute("score-max",maxScore);
+        if(MaxWhoScore<scoreWho){MaxWhoScore=scoreWho;}
+        if(MaxWhoScoreBird<scoreWhoBird){MaxWhoScoreBird=scoreWhoBird;}
+        session.setAttribute("score-max",MaxRushScore);
         session.setAttribute("score",score);
         session.setAttribute("who-id",id);
         session.setAttribute("score-who",scoreWho);
-        session.setAttribute("score-who-max",scoreWhoMax);
+        session.setAttribute("score-who-max",MaxWhoScore);
         session.setAttribute("who-id-bird",idBird);
         session.setAttribute("score-who-bird",scoreWhoBird);
-        session.setAttribute("score-who-max-bird",scoreWhoMaxBird);
+        session.setAttribute("score-who-max-bird",MaxWhoScoreBird);
 
         if(id>=11&&action!=null){session.setAttribute("command", Command.WHO_END_A);}
         if(idBird>=11&&action!=null){session.setAttribute("command", Command.WHO_END_B);}

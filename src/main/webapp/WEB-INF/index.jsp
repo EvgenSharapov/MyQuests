@@ -88,8 +88,6 @@
             <b class="login-text2">SpaceQuest :<%=session.getAttribute("space-end")%></b>
 
 
-
-
         </div>
     </c:if>
 </c:if>
